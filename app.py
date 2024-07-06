@@ -357,7 +357,7 @@ def del_aluno(query: AlunoBuscaSchemaPorNome):
 
     Devolve uma mensagem de confirmação da remoção.
     """
-    aluno_nome = unquote(unquote(query.aluno))
+    aluno_nome = unquote(unquote(query.nome))
     print(aluno_nome)
     logger.debug(f"Deletando dados sobre aluno #{aluno_nome}")
     # Criando conexão com o banco de dados
