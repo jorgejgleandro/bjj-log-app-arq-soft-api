@@ -15,7 +15,7 @@ class Aluno(Base):
     graduacao = Column(String(140))
     endereco = Column(String(300))
 
-    def __init__(self, nome:str, graduacao:str, data_de_nascimento:str, data_de_inicio:str):
+    def __init__(self, nome:str, graduacao:str, data_de_nascimento:str, data_de_inicio:str, endereco:str):
         """
         Cadastra um Auno
 

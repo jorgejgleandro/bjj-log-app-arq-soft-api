@@ -244,7 +244,8 @@ def add_aluno(form: AlunoSchema):
         nome=form.nome,
         data_de_nascimento=form.data_de_nascimento,
         data_de_inicio=form.data_de_inicio,
-        graduacao=form.graduacao
+        graduacao=form.graduacao,
+        endereco=form.endereco
         )
 
     logger.debug(f"Adicionando aluno chamado: '{aluno.nome}'")
