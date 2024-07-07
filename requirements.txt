@@ -1,10 +1,6 @@
-Flask
-Flask-Cors
-flask-openapi3
-Flask-SQLAlchemy
-nose2
-pydantic
-SQLAlchemy
-SQLAlchemy-Utils
-typing_extensions
-unidecode
+Flask==3.0.3
+Flask_Cors==4.0.1
+flask_openapi3==3.1.3
+pydantic==2.8.2
+SQLAlchemy==2.0.31
+SQLAlchemy_Utils==0.41.2
