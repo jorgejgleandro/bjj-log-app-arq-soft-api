@@ -164,38 +164,6 @@ def del_tecnica(query: TecnicaBuscaSchemaPorNome):
         logger.warning(f"Erro ao remover tecnica #'{tecnica_nome}', {error_msg}")
         return {"mensagem": error_msg}, 404
 
-@app.put('/tecnicas/<int:tecnica_id>', tags=[tecnica_tag],
-            responses={"200": TecnicaViewSchema, "404": ErrorSchema})
-def update_tecnica(tecnica_id: int):
-
-    # Criando conexão com a base
-    session = Session()    
-    # Realizando a busca pela tecnica a ser atualizada
-    tecnica = session.query(Tecnica).filter(Tecnica.id == tecnica_id).first()
-
-    if not tecnica:
-        # Se tecnica não foi encontrada
-        logger.warning(f"Erro ao buscar tecnica '{tecnica_id}', {error_msg}")
-        error_msg = "tecnica não encontrada na base :/"
-        return {"mensagem": error_msg}, 404
-
-    # Atualizando a tecnica   
-    data = request.get_json()
-    if data is None:
-        error_msg = "Faltando campos em tecnica"
-        return {"mensagem": error_msg}, 404
-
-    tecnica.nome = data.nome
-    tecnica.descricao = data.descricao
-    tecnica.nivel = data.nivel
-    tecnica.video = data.video
-
-    session.commit()
-    logger.debug(f"Atualizada tecnica de nome: '{tecnica.nome}'")
-
-    # Devolve a representação de tecnica
-    return apresenta_tecnica(tecnica), 200
-
 
 @app.post('/comentario', tags=[comentario_tag],
           responses={"200": TecnicaViewSchema, "404": ErrorSchema})

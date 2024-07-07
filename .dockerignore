@@ -1,0 +1,6 @@
+__pycache__/
+database/
+log/
+Dockerfile
+README.md
+runapi.sh
