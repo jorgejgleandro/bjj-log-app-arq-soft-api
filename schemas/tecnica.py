@@ -13,6 +13,12 @@ class TecnicaSchema(BaseModel):
     nivel: str = "Iniciante"
     video: str = "https://youtu.be/TEV76y9ijHQ?si=rB_qrRT4KaI-lQP2"
 
+class TecnicaUpdateSchema(BaseModel):
+    nome: str
+    descricao: str
+    nivel: str
+    video: str
+
 class TecnicaBuscaSchemaPorTermo(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será
         feita apenas com base em um termo no nome da Tecnica.
