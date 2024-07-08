@@ -1,9 +1,8 @@
 # *Brazilian Jiu-Jitsu Training Log - API*
 
-Esta é uma aplicação web que permite o acompanhamento objetivo do progresso do aprendizado de técnicas de Jiu-Jitsu, um pequeno projeto que constitui o primeiro MVP a ser apresentado à disciplina **Desenvolvimento Full Stack Básico**.
+Esta é uma aplicação web que permite o acompanhamento objetivo do progresso do aprendizado de técnicas de Jiu-Jitsu, um pequeno projeto que constitui o MVP a ser apresentado à disciplina **Arquitetura de Software** do curso de **Pós-graduação em Engenharia de Software - PUC-Rio**
 
 ## Objetivo
-
 
 <img src="./img/positions.jpg" alt="Brazilian Jiu-Jitsu Training Image" title="Brazilian Jiu-Jitsu Training Image" width="200"/>
 
@@ -16,24 +15,29 @@ A presente ferramenta se propõe a preencher essa lacuna, possibilitando não so
 Apesar do Jiu-Jitsu Brasileiro (*Brazilian Jiu Jitsu*) ter sido aqui eleito como caso de uso, considerando sua popularidade e a tradição de prática de lutas em todas as sessões de treino, em princípio, esse sistema poderia ser aplicado a qualquer modalidade que permita contar os números de sucessos e insucessos em aplicações de técnicas. A contagem poderia ser efetuada pelo próprio praticante, com base em suas recordações do treinamento, pelo professor assistindo a um pequeno grupo de alunos ou por um sistema de Visão Computacional baseado em vídeo com Estimação de Pose.
 
 ---
-## Instalação
-
-Vale salientar que, para executar a aplicação com o [*frontend*](https://github.com/jorgejgleandro/bjj_log_app_front), é necessário que esse *backend* esteja em execução.
-
-A presente aplicação foi desenvolvida em **Linux Ubuntu 20.04** e **Windows 11**, mediante o *WSL* (Subsistema do Windows para Linux), mas os passos para instalação deveriam ser agnósticos ao sistema operacional.
+## Baixar repositório
 
 Faça uma cópia desse repositório para sua máquina local, preferencialmente com o comando abaixo. 
 
 ```
-git clone git@github.com:jorgejgleandro/bjj_log_app_api.git
-```
-Acesse a **branch** *master* do repositório:
-
-```
-git checkout master
+git clone git@github.com:jorgejgleandro/bjj-log-app-arq-soft-api.git
 ```
 
-Uma vez clonado esse repositório, acesse seu diretório raiz, via terminal, para executar os seguintes comandos.
+Acesse a **branch** *main* do repositório:
+
+```
+git checkout main
+```
+
+## Instalação e Execução
+
+Vale salientar que, para executar a aplicação com o componente  [*frontend*](https://github.com/jorgejgleandro/bjj-training-log-arq-soft-frontend), é necessário que este componente *backend* esteja em execução.
+
+A presente aplicação foi desenvolvida em **Linux Ubuntu 20.04** e **Windows 11**, mediante o *WSL* (Subsistema do Windows para Linux), mas os passos para instalação deveriam ser agnósticos ao sistema operacional.
+
+
+### Modo desenvolvimento: Instalação
+Uma vez clonado esse repositório, acesse seu diretório na raiz desse projeto, via terminal, para executar os seguintes comandos.
 
 > Recomenda-se fortemente o uso de ambientes virtuais do tipo [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html).
 
@@ -44,7 +48,7 @@ Uma vez clonado esse repositório, acesse seu diretório raiz, via terminal, par
 Todas as bibliotecas *Python* que constituem dependências, listadas no arquivo `requirements.txt`, serão instaladas.
 
 ---
-## Execução 
+### Modo desenvolvimento: Execução
 
 Para executar essa *API*, basta digitar o seguinte comando no *prompt* do terminal e teclar *ENTER*:
 
@@ -59,3 +63,24 @@ Em modo de desenvolvimento, recomenda-se executar esta aplicação utilizando o 
 ```
 
 Abra o [http://localhost:5000/#/](http://localhost:5000/#/) em seu navegador para verificar o **status** dessa *API* em execução.
+
+
+## Modo produção via Docker: Instalação
+Certifique-se de ter o [Docker](https://docs.docker.com/engine/install/) devidamente instalado e em execução em sua máquina.
+
+Pelo terminal, acesse o diretório que contém o Dockerfile, na raiz desse projeto, onde encontram-se os arquivos da API.
+
+Construa a imagem Docker mediante o seguinte comando, **como administrador**:
+
+```
+$ docker build -t nome_da_sua_imagem .
+```
+
+## Modo produção via Docker: Execução
+
+Execute o container, execute o seguinte comando, **como administrador**, seguinte o comando:
+
+```
+$ docker run -p 5000:5000 nome_da_sua_imagem
+```
+Uma vez executando, para verificar o status dessa API em execução, basta abrir o [http://localhost:5000/#/](http://localhost:5000/#/) no navegador.
