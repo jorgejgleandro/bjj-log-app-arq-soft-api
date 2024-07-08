@@ -29,13 +29,14 @@ Acesse a **branch** *main* do repositório:
 git checkout main
 ```
 
+---
 ## Instalação e Execução
 
 Vale salientar que, para executar a aplicação com o componente  [*frontend*](https://github.com/jorgejgleandro/bjj-training-log-arq-soft-frontend), é necessário que este componente *backend* esteja em execução.
 
 A presente aplicação foi desenvolvida em **Linux Ubuntu 20.04** e **Windows 11**, mediante o *WSL* (Subsistema do Windows para Linux), mas os passos para instalação deveriam ser agnósticos ao sistema operacional.
 
-
+---
 ### Modo desenvolvimento: Instalação
 Uma vez clonado esse repositório, acesse seu diretório na raiz desse projeto, via terminal, para executar os seguintes comandos.
 
@@ -47,7 +48,7 @@ Uma vez clonado esse repositório, acesse seu diretório na raiz desse projeto, 
 
 Todas as bibliotecas *Python* que constituem dependências, listadas no arquivo `requirements.txt`, serão instaladas.
 
----
+
 ### Modo desenvolvimento: Execução
 
 Para executar essa *API*, basta digitar o seguinte comando no *prompt* do terminal e teclar *ENTER*:
@@ -64,7 +65,7 @@ Em modo de desenvolvimento, recomenda-se executar esta aplicação utilizando o 
 
 Abra o [http://localhost:5000/#/](http://localhost:5000/#/) em seu navegador para verificar o **status** dessa *API* em execução.
 
-
+---
 ## Modo produção via Docker: Instalação
 Certifique-se de ter o [Docker](https://docs.docker.com/engine/install/) devidamente instalado e em execução em sua máquina.
 
