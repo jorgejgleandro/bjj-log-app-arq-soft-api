@@ -24,7 +24,7 @@ class Tecnica(Base):
         """
         Cadastra uma Tecnica
 
-        Arguments:
+        Argumentos:
             nome: nome da tecnica.
             descricao: breve texto explicativo sobre a tecnica.
             nivel: um de tres niveis possiveis: iniciante, intermediario ou avancado
@@ -40,4 +40,3 @@ class Tecnica(Base):
         """ Adiciona um novo comentário à técnica
         """
         self.comentarios.append(comentario)
-

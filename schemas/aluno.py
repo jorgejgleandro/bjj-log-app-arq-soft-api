@@ -1,10 +1,10 @@
-from pydantic import BaseModel, validator
+from pydantic import BaseModel
+from pydantic.functional_validators import field_validator
 from typing import Optional, List
 from model.aluno import Aluno
 from datetime import datetime
 
 from schemas import ComentarioSchema
-
 
 class AlunoSchema(BaseModel):
     """ Define como um novo Aluno a ser inserido deve ser representado
@@ -15,7 +15,7 @@ class AlunoSchema(BaseModel):
     graduacao: str = "branca"
     endereco: str = "Rua Nelson Righi, Parque dos Ipes, Jaguariuna, SP"
 
-    @validator('data_de_nascimento')
+    @field_validator('data_de_nascimento')
     def date_validation1(cls, v):
         try:
             _ = datetime.strptime(v, "%d/%m/%Y")
@@ -23,7 +23,7 @@ class AlunoSchema(BaseModel):
         except Exception as e:
             raise ValueError('A data deve ter um formato dd/mm/yyyy')
    
-    @validator('data_de_inicio')
+    @field_validator('data_de_inicio')
     def date_validation2(cls, v):
         try:
             _ = datetime.strptime(v, "%d/%m/%Y")

@@ -4,7 +4,6 @@ from typing import Union
 
 from  model import Base
 
-
 class Comentario(Base):
     __tablename__ = 'comentario'
 
@@ -22,7 +21,7 @@ class Comentario(Base):
         """
         Cria um Comentário
 
-        Arguments:
+        Argumentos:
             texto: o texto de um comentário.
             data_insercao: data de quando o comentário foi feito ou inserido
                            à base

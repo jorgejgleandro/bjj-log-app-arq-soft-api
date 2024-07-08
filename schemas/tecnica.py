@@ -4,7 +4,6 @@ from model.tecnica import Tecnica
 
 from schemas import ComentarioSchema
 
-
 class TecnicaSchema(BaseModel):
     """ Define como uma nova Tecnica a ser inserida deve ser representada
     """
@@ -17,10 +16,10 @@ class TecnicaPathSchema(BaseModel):
     id: int = Field(..., description="Tecnica id", json_schema_extra={"deprecated":True, "example": 1})
 
 class TecnicaBodySchema(BaseModel):
-    nome: str = Field(..., min_length=2, max_lengh=140, description="Nome da tecnica")
-    descricao: str = Field(..., min_length=2, max_length=4000, description="Descricao da Tecnica")
-    nivel: str = Field(..., min_length=2, max_length=10, description="Iniciante")
-    video: str = Field(..., min_length=4, description="Youtube video URL")
+    nome: Optional[str] = Field(..., min_length=2, max_lengh=140, description="Nome da tecnica")
+    descricao: Optional[str] = Field(..., min_length=2, max_length=4000, description="Descricao da Tecnica")
+    nivel: Optional[str] = Field(..., min_length=2, max_length=10, description="Iniciante")
+    video: Optional[str] = Field(..., min_length=4, description="Youtube video URL")
 
 class TecnicaBuscaSchemaPorTermo(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será

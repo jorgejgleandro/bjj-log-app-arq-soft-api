@@ -19,7 +19,7 @@ class Aluno(Base):
         """
         Cadastra um Auno
 
-        Arguments:
+        Argumentos:
             nome: nome do aluno.
             data de nascimento: data de nascimento do aluno.
             data de inicio: data da primeira aula do aluno
