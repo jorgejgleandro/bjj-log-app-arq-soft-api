@@ -94,7 +94,7 @@ def get_tecnicas_por_termo(query: TecnicaBuscaSchemaPorTermo):
 
     Devolve uma representação da listagem de tecnicas.
     """
-    
+
     termo_tecnica = query.nome
 
     logger.debug(f"Coletando tecnicas ")
@@ -164,11 +164,15 @@ def del_tecnica(query: TecnicaBuscaSchemaPorNome):
         logger.warning(f"Erro ao remover tecnica #'{tecnica_nome}', {error_msg}")
         return {"mensagem": error_msg}, 404
 
-@app.put('/tecnicas/<int:tecnica_id>', tags=[tecnica_tag],
+@app.put('/tecnicas/<int:id>', tags=[tecnica_tag],
             responses={"200": TecnicaViewSchema, "404": ErrorSchema})
-def update_tecnica(query: TecnicaBuscaSchemaPorID, data: TecnicaUpdateSchema):
+def update_tecnica(path: TecnicaPathSchema, body: TecnicaBodySchema):
+    """Realiza a busca por uma tecnica a partir do id da tecnica,
+    Atualiza a respectiva tecnica com novo conteudo fornecido,
 
-    tecnica_id = query.id
+    Devolve uma representação das tecnicas e respectivos comentários.
+    """
+    tecnica_id = path.id
 
     # Criando conexão com a base
     session = Session()    
@@ -181,18 +185,11 @@ def update_tecnica(query: TecnicaBuscaSchemaPorID, data: TecnicaUpdateSchema):
         error_msg = "tecnica não encontrada na base :/"
         return {"mensagem": error_msg}, 404
 
-    apresenta_tecnica(tecnica);
-
-    # Atualizando a tecnica   
-    data = request.get_json()
-    if data is None:
-        error_msg = "Faltando campos em tecnica"
-        return {"mensagem": error_msg}, 404
-
-    tecnica.nome = data.nome
-    tecnica.descricao = data.descricao
-    tecnica.nivel = data.nivel
-    tecnica.video = data.video
+    # Atualizando a tecnica
+    tecnica.nome = body.nome
+    tecnica.descricao = body.descricao
+    tecnica.nivel = body.nivel
+    tecnica.video = body.video
 
     session.commit()
     logger.debug(f"Atualizada tecnica de nome: '{tecnica.nome}'")

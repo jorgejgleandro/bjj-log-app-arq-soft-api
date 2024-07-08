@@ -10,7 +10,7 @@ class Tecnica(Base):
 
     id = Column("pk_tecnica", Integer, primary_key=True)
     nome = Column(String(140), unique=True)
-    descricao = Column(String(8000))
+    descricao = Column(String(4000))
     nivel = Column(String)
     video = Column(String)
 

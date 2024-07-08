@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional, List
 from model.tecnica import Tecnica
 
@@ -13,11 +13,14 @@ class TecnicaSchema(BaseModel):
     nivel: str = "Iniciante"
     video: str = "https://youtu.be/TEV76y9ijHQ?si=rB_qrRT4KaI-lQP2"
 
-class TecnicaUpdateSchema(BaseModel):
-    nome: str
-    descricao: str
-    nivel: str
-    video: str
+class TecnicaPathSchema(BaseModel):
+    id: int = Field(..., description="Tecnica id", json_schema_extra={"deprecated":True, "example": 1})
+
+class TecnicaBodySchema(BaseModel):
+    nome: str = Field(..., min_length=2, max_lengh=140, description="Nome da tecnica")
+    descricao: str = Field(..., min_length=2, max_length=4000, description="Descricao da Tecnica")
+    nivel: str = Field(..., min_length=2, max_length=10, description="Iniciante")
+    video: str = Field(..., min_length=4, description="Youtube video URL")
 
 class TecnicaBuscaSchemaPorTermo(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será

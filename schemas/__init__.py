@@ -1,7 +1,7 @@
 from schemas.comentario import ComentarioSchema
 
 from schemas.tecnica import TecnicaSchema, TecnicaBuscaSchemaPorID, TecnicaBuscaSchemaPorNome, TecnicaBuscaSchemaPorTermo, TecnicaViewSchema, \
-                            ListagemTecnicasSchema, TecnicaUpdateSchema, TecnicaDelSchema, \
+                            ListagemTecnicasSchema, TecnicaPathSchema, TecnicaBodySchema, TecnicaDelSchema, \
                             apresenta_tecnica, apresenta_tecnicas
                             
 from schemas.aluno import   AlunoSchema, AlunoBuscaSchemaPorID, AlunoBuscaSchemaPorNome, AlunoBuscaSchemaPorTermo, AlunoViewSchema, \
