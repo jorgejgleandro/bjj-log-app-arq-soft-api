@@ -79,7 +79,7 @@ $ docker build -t nome_da_sua_imagem .
 
 ## Modo produção via Docker: Execução
 
-Execute o container, por meio do seguinte comando, **como administrador**, seguinte o comando:
+Execute o container, por meio do seguinte comando, **como administrador**:
 
 ```
 $ docker run -p 5000:5000 nome_da_sua_imagem
