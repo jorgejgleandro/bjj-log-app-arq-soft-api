@@ -49,7 +49,7 @@ def add_tecnica(form: TecnicaSchema):
         # Efetivando o comando de adição de novo item na tabela
         session.commit()
         logger.debug(f"Adicionada tecnica de nome: '{tecnica.nome}'")
-        #return apresenta_tecnica(tecnica), 200
+        # return apresenta_tecnica(tecnica), 200
         return ""
 
     except IntegrityError as e:
@@ -307,11 +307,11 @@ def get_alunos_por_termo(query: AlunoBuscaSchemaPorTermo):
     
     termo_aluno = query.nome
 
-    logger.debug(f"Coletando tecnicas ")
+    logger.debug(f"Coletando alunos ")
     # Criando conexão com a base
     session = Session()
     # Realizando a busca
-    alunos = session.query(Tecnica).filter(Aluno.nome.contains(termo_aluno)).all()
+    alunos = session.query(Aluno).filter(Aluno.nome.contains(termo_aluno)).all()
 
     if not alunos:
         # Se não houver alunos cadastrados
@@ -336,12 +336,12 @@ def get_aluno(query: AlunoBuscaSchemaPorID):
     # Criando conexão com o banco de dados
     session = Session()
     # Realizando a busca
-    tecnica = session.query(Aluno).filter(Aluno.id == aluno_id).first()
+    aluno = session.query(Aluno).filter(Aluno.id == aluno_id).first()
 
     if not aluno:
         # Se o aluno não foi encontrado
         error_msg = "Aluno não encontrado no banco de dados :/"
-        logger.warning(f"Erro ao buscar aluno '{tecnico_id}', {error_msg}")
+        logger.warning(f"Erro ao buscar aluno '{aluno_id}', {error_msg}")
         return {"mensagem": error_msg}, 404
     else:
         logger.debug(f"Aluno encontrado: '{aluno.nome}'")
