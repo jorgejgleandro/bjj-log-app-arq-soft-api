@@ -18,7 +18,7 @@ class TecnicaPathSchema(BaseModel):
 class TecnicaBodySchema(BaseModel):
     nome: Optional[str] = Field(..., min_length=2, max_lengh=140, description="Nome da tecnica")
     descricao: Optional[str] = Field(..., min_length=2, max_length=4000, description="Descricao da Tecnica")
-    nivel: Optional[str] = Field(..., min_length=2, max_length=10, description="Iniciante")
+    nivel: Optional[str] = Field(..., min_length=2, max_length=30, description="Iniciante")
     video: Optional[str] = Field(..., min_length=4, description="Youtube video URL")
 
 class TecnicaBuscaSchemaPorTermo(BaseModel):
